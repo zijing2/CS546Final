@@ -45,73 +45,77 @@ body{margin: 0;padding: 0;}
 
 
 .container .text-muted {
-  margin: 20px 20px 0;
-}
-
-
-.account_title {
-	margin-left: 100px;
-	margin-top: 50px;
-}
-
-.account_title2 {
-  margin-left: 100px;
-  margin-top: 96px;
-}
-
-.account_logo {
-	font-size: 30px;
-	margin-right: 20px;
-	margin-top: 50px;
-}
-
-.account_pet_logo {
-  width:35px;
-
-
-}
-
-form {
-	padding-left:0px;
-	padding-right: 50px;
-	padding-top: 20px;
-}
-
-.account_img {
-	height: 400px;
-    margin: 30px;
-}
-
-.account_user_background_color{
-	background-color: rgb(153,153,204);
-	
-}
-
-.account_pet_background_color{
-  background-color: rgb(255,154,204);
   
 }
 
+.footer .row {
+  padding:20px;
+}
+
+
+.price {
+  background:url(../img/sp_block.png);
+  text-align:center; 
+}
+
+.price_title{
+  font-size: 18px;
+  color: rgb(255,255,153);
+  margin-top: 10px;
+  margin-bottom: :5px;
+}
+
+.price_price{
+  font-size: 30px;
+  color: rgb(255,255,153);
+  margin-bottom: 5px;
+}
+
+.price_price_sub{
+  font-size: 13px;
+}
+
+.price_botton{
+  margin-bottom: 20px;
+}
+
+.price_list{
+  list-style:none;
+  text-align: left;
+}
+
+.sp_title{
+  text-align:center; 
+  text-decoration:underline ;
+  margin-bottom:30px;
+  margin-top: 20px;
+}
+
+.bwizard_block{
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+.step1_previous {
+  padding-left: 200px;
+  padding-top: 150px;
+}
+
+.step1_next {
+  padding-right: 230px;
+  padding-top:150px;
+}
+
+.step_background_color{
+  
+}
 
 .footer {
 
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+
   background-color: #f5f5f5;
-}
-
-
-
-.kv-avatar .file-preview-frame,.kv-avatar .file-preview-frame:hover {
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-shadow: none;
-    text-align: center;
-}
-.kv-avatar .file-input {
-    display: table-cell;
-    max-width: 220px;
 }

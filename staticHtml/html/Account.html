@@ -15,11 +15,17 @@
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap-fileinput/4.3.5/css/fileinput.min.css">
+
     <!-- <link href="http://bootstrap.ninghao.net/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
 
     <link href="../css/account.css" rel="stylesheet">
 
     <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+
+    
+
 
 
   </head>
@@ -38,7 +44,7 @@
           <div>
               <ul class="nav navbar-nav">
                   <li class="active"><a href="Home.html">Home</a></li>
-                  <li><a href="Price">Price</a></li>
+                  <li><a href="Price.html">Price</a></li>
                   <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                           More <b class="caret"></b>
@@ -65,10 +71,21 @@
 
 
 
-       <div class="row clearfix" style="margin-bottom:50px">
+       <div class="row clearfix">
     <div class="col-md-6 column  account_user_background_color">
-       <h1 class="account_title"><i class="fa fa-user account_logo"></i>User Account</h1>
-      <form class="form-horizontal" role="form">
+
+       <h1 class="account_title"><i class="fa fa-user account_logo"></i>User Information</h1>
+       <!-- the avatar markup -->
+        <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+        <form class="text-center form-horizontal" action="/avatar_upload.php" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <div class="kv-avatar center-block" style="width:200px">
+                <input id="avatar-1" name="avatar-1" type="file" class="file-loading">
+            </div>
+            <!-- include other inputs if needed and include a form submit (save) button -->
+            <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+          </div>
+
         <div class="form-group">
            <label for="inputEmail3" class="col-sm-2 control-label"></label>
           <div class="col-sm-10">
@@ -140,9 +157,18 @@
       </form>
     </div>
     <div class="col-md-6 column  account_pet_background_color">
-      <h1 class="account_title2"><img class="account_pet_logo" src="../img/icon-pet.png" alt=""/> Pet Account</h1>
-      <form class="form-horizontal" role="form">
-
+      <h1 class="account_title2"><img class="account_pet_logo" src="../img/icon-pet.png" alt=""/> Pet Information</h1>
+      <!-- the avatar markup -->
+        <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+        <form class="text-center form-horizontal" action="/avatar_upload.php" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <div class="kv-avatar center-block" style="width:200px">
+                <input id="avatar-2" name="avatar-2" type="file" class="file-loading">
+            </div>
+          </div>
+            <!-- include other inputs if needed and include a form submit (save) button -->
+        
+        <!-- your server code `avatar_upload.php` will receive `$_FILES['avatar']` on form submission -->
 
         <div class="form-group">
            <label for="inputEmail3" class="col-sm-2 control-label"></label>
@@ -215,8 +241,11 @@
           </div>
         </div>
       </form>
+
+
     </div>
   </div>
+
 
 
 
@@ -252,5 +281,17 @@
 
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+  <script src="http://cdn.bootcss.com/bootstrap-fileinput/4.3.5/js/fileinput.min.js"></script>
+
+  <!-- canvas-to-blob.min.js is only needed if you wish to resize images before upload.
+     This must be loaded before fileinput.min.js -->
+  <script src="http://cdn.bootcss.com/javascript-canvas-to-blob/3.5.0/js/canvas-to-blob.min.js"></script>
+
+  <script src="http://cdn.bootcss.com/bootstrap-fileinput/4.3.5/js/plugins/purify.min.js"></script>
+
+   <script src="http://cdn.bootcss.com/bootstrap-fileinput/4.3.5/js/plugins/sortable.min.js"></script>
+
+  <script src="../javascript/account.js"></script>
   </body>
 </html>

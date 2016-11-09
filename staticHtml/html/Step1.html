@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!--  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+    <!-- <link href="http://bootstrap.ninghao.net/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+
+    <link href="../css/step1.css" rel="stylesheet">
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/lib/bwizard.min.css">
+
+
+  </head>
+
+  <body>
+
+    <div class="container step_background_color">
+        <div class="row clearfix" >
+          <div class="col-xs-12 column">
+              <nav class="navbar-inverse navbar-static-top" >
+          <div class="container-fluid">
+          <div class="navbar-header" style="margin-left:20px">
+              <a href="Home.html"><img class="navbar-brand" src="../img/logo.png" alt=""></a>
+          </div>
+          <div>
+              <ul class="nav navbar-nav">
+                  <li class="active"><a href="Home.html">Home</a></li>
+                  <li><a href="Price.html">Price</a></li>
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          More <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a href="Account.html">Account</a></li>
+                          <li><a href="OrderList.html">Order</a></li>
+                          <li><a href="#">Help</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">分离的链接</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">另一个分离的链接</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+          <ul class="nav navbar-nav navbar-right"> 
+              <li><a href="Register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li> 
+              <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+          </ul> 
+          </div>
+      </nav>
+          </div>
+        </div>
+
+
+    <div class="row clearfix bwizard_block" >
+      <div id="wizard" class="bwizard clearfix">
+        <ol class="bwizard-steps clearfix clickable" role="tablist">
+          <li role="tab" aria-selected="true" class="active" style="z-index: 4;"><span class="label badge-inverse">1</span><a href="step1.html" class="hidden-phone">Package</a></li>
+          <li role="tab" aria-selected="false" style="z-index: 3;" class=""><span class="label">2</span><a href="step2.html" class="hidden-phone">Product</a></li>
+          <li role="tab" aria-selected="false" style="z-index: 2;"><span class="label">3</span><a href="step3.html" class="hidden-phone">Time&Address</a></li>
+          <li role="tab" aria-selected="false" style="z-index: 1;"><span class="label">4</span><a href="step4.html" class="hidden-phone">OrderReview</a></li>
+        </ol>      
+     </ul></div>
+   </div>
+		
+		<div class="row clearfix" style="margin-bottom:20px">
+        <h1 class="sp_title">Service Price</h1>
+        <div class="col-xs-3 column step1_previous">
+            <ul class="pager bwizard-buttons"><li class="previous disabled " role="button" aria-disabled="true"><a href="#">← Previous</a></li></ul>
+        </div>
+        <div class="col-xs-2 column price" style="background:url(../img/sp_block.png)">
+          <div class="price_title"><span>Standard</span></div>
+          <div class="price_price"><span>$50</span><sub class="price_price_sub">/party</sub><br/></div>  
+          <button type="button" class="btn btn-default btn-xs price_botton">choose this package</button><br/>
+          <ul class="price_list">
+            <li>birthday theme X 1</li>
+            <li>birthday cake X 1</li>
+            <li>birthday gift X 1</li>
+            <li>birthday album X 1</li>
+          </ul>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+
+        </div>
+        <div class="col-xs-2 column price" style="background:url(../img/sp_block.png)">
+          <div class="price_title"><span>VIP</span></div>
+          <div class="price_price"><span>$200</span><sub class="price_price_sub">/party</sub><br/></div>  
+          <button type="button" class="btn btn-default btn-xs price_botton">choose this package</button><br/>
+          <ul class="price_list">
+            <li>birthday theme X 1</li>
+            <li>birthday cake X 1</li>
+            <li>birthday gift X 1</li>
+            <li>birthday album X 1</li>
+            <li>birthday song X 1</li>
+            <li>birthday game X 1</li>
+            <li>birthday bulter X 1</li>
+            <li>birthday dress X 1</li>
+          </ul>
+          <br/><br/><br/><br/><br/><br/><br/>
+          
+        </div> 
+        <div class="col-xs-2 column price" style="background:url(../img/sp_block.png)">
+          <div class="price_title"><span>VVIP</span></div>
+          <div class="price_price"><span>$500</span><sub class="price_price_sub">/party</sub><br/></div>  
+          <button type="button" class="btn btn-default btn-xs price_botton">choose this package</button><br/>
+          <ul class="price_list">
+            <li>birthday theme X 1</li>
+            <li>birthday cake X 1</li>
+            <li>birthday gift X 1</li>
+            <li>birthday album X 1</li>
+            <li>birthday song X 1</li>
+            <li>birthday game X 1</li>
+            <li>birthday bulter X 1</li>
+            <li>birthday dress X 1</li>
+            <li>birthday DJ X 1</li>
+            <li>birthday logo X 1</li>
+          </ul>
+          <br/><br/><br/><br/><br/>
+        </div>
+        <div class="col-xs-3 column">
+          <ul class="pager bwizard-buttons step1_next"><li class="next " role="button" aria-disabled="false"><a href="step2.html">Next →</a></li></ul>
+        </div>
+      </div>
+
+
+      </div>
+
+
+	  <div class="footer">
+	      <div class="container">
+	           <div class="row clearfix">
+	            <div class="col-xs-6 column">
+	               <div class="text-muted">|<a href="#"><span> POLICY </span></a>
+	                |<a href="#"><span> PRIVACY </span></a>
+	                |<a href="#"><span> ADVERTISEMENT </span></a>
+	                |<a href="#"><span > CONTACT US |</span></a>
+	               </div>
+	            </div>
+	            <div class="col-xs-6 column">
+	                 <div class="text-muted  text-right"> COPYRIGHT <span class="glyphicon glyphicon-copyright-mark"></span> 2016-2020 SIT. All rights reserved. </div>
+	            </div>
+	          </div>
+	      </div>
+	    </div>
+   
+
+ 
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+  <script type="../javascript/lib/bwizard.min.js"></script>
+  </body>
+</html>
