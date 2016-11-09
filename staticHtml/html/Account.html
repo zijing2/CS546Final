@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!--  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+    <!-- <link href="http://bootstrap.ninghao.net/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+
+    <link href="../css/account.css" rel="stylesheet">
+
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+
+
+  <div class="container">
+        <div class="row clearfix" >
+          <div class="col-xs-12 column">
+              <nav class="navbar-inverse navbar-static-top" >
+          <div class="container-fluid">
+          <div class="navbar-header" style="margin-left:20px">
+              <a href="Home.html"><img class="navbar-brand" src="../img/logo.png" alt=""></a>
+          </div>
+          <div>
+              <ul class="nav navbar-nav">
+                  <li class="active"><a href="Home.html">Home</a></li>
+                  <li><a href="Price">Price</a></li>
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          More <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a href="Account.html">Account</a></li>
+                          <li><a href="OrderList.html">Order</a></li>
+                          <li><a href="#">Help</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">分离的链接</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">另一个分离的链接</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+          <ul class="nav navbar-nav navbar-right"> 
+              <li><a href="Register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li> 
+              <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+          </ul> 
+          </div>
+      </nav>
+          </div>
+
+
+
+       <div class="row clearfix" style="margin-bottom:50px">
+    <div class="col-md-6 column  account_user_background_color">
+       <h1 class="account_title"><i class="fa fa-user account_logo"></i>User Account</h1>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+           <label for="inputEmail3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <div class="input-group margin-bottom-sm">
+
+              <span class="input-group-addon"><i class="fa fa-id-card-o fa-fw" aria-hidden="true"></i></span>
+              <input class="form-control" type="text" placeholder="123123123123" disabled>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputEmail3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+              <input class="form-control" type="text" placeholder="UserName">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-mars fa-fw"></i></span>
+              <select class="form-control" >
+                  <option>male</option>
+                  <option>female</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-birthday-cake fa-fw"></i></span>
+              <input class="form-control"  placeholder="Date Of Birth">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-mobile fa-fw"></i></span>
+              <input class="form-control"  placeholder="Mobile">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-home fa-fw"></i></span>
+              <input class="form-control"  placeholder="Address">
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+              <div class="btn-group">
+             <button type="submit" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">Save</button>
+             <button type="button" class="btn btn-default">Reset</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 column  account_pet_background_color">
+      <h1 class="account_title2"><img class="account_pet_logo" src="../img/icon-pet.png" alt=""/> Pet Account</h1>
+      <form class="form-horizontal" role="form">
+
+
+        <div class="form-group">
+           <label for="inputEmail3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+              <input class="form-control" type="text" placeholder="PetName">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-paw fa-fw"></i></span>
+              <select class="form-control" >
+                  <option>Dog</option>
+                  <option>Cat</option>
+                  <option>Bird</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-mars fa-fw"></i></span>
+              <select class="form-control" >
+                  <option>male</option>
+                  <option>female</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-birthday-cake fa-fw"></i></span>
+              <input class="form-control"  placeholder="Date Of Birth">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-heart fa-fw"></i></span>
+              <input class="form-control"  placeholder="Hobbies">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-fire fa-fw"></i></span>
+              <input class="form-control"  placeholder="Hates">
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+              <div class="btn-group">
+             <button type="submit" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">Save</button>
+             <button type="button" class="btn btn-default">Reset</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+        </div>
+
+
+  <div class="footer">
+      <div class="container">
+           <div class="row clearfix">
+            <div class="col-xs-6 column">
+               <div class="text-muted">|<a href="#"><span> POLICY </span></a>
+                |<a href="#"><span> PRIVACY </span></a>
+                |<a href="#"><span> ADVERTISEMENT </span></a>
+                |<a href="#"><span > CONTACT US |</span></a>
+               </div>
+            </div>
+            <div class="col-xs-6 column">
+                 <div class="text-muted  text-right"> COPYRIGHT <span class="glyphicon glyphicon-copyright-mark"></span> 2016-2020 SIT. All rights reserved. </div>
+            </div>
+          </div>
+      </div>
+    </div>
+   
+
+ 
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
