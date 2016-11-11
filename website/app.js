@@ -14,10 +14,12 @@ const handlebarsInstance = exphbs.create({
     // Specify helpers which are only registered on this instance.
     helpers: {
         asJSON: (obj, spacing) => {
-            if (typeof spacing === "number")
-                return new Handlebars.SafeString(JSON.stringify(obj, null, spacing));
+            console.log(obj.data.root.modelData);
+            return JSON.stringify(obj.data.root.modelData);
+            // if (typeof spacing === "number")
+            //     return new Handlebars.SafeString(JSON.stringify(obj, null, spacing));
         
-            return new Handlebars.SafeString(JSON.stringify(obj));
+            // return new Handlebars.SafeString(JSON.stringify(obj));
         }
     },
      partialsDir: [
