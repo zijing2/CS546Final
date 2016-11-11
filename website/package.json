@@ -1,0 +1,20 @@
+{
+  "name": "petpar",
+  "version": "1.0.0",
+  "description": "final project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node app.js"
+  },
+  "author": "ZijingHuang ShiZheZhou JiaoWang",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.5",
+    "mongodb": "^2.2.11",
+    "node-uuid": "^1.4.7"
+  }
+}
