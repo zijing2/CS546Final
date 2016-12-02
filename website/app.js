@@ -2,6 +2,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const static = express.static(__dirname + '/public');
+const passport = require('passport')
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+
+const data = require("./data");
+const users = data.user;
+
 
 const configRoutes = require("./routes");
 
@@ -39,6 +46,45 @@ const rewriteUnsupportedBrowserMethods = (req, res, next) => {
     // let the next middleware run:
     next();
 };
+
+
+app.use(passport.initialize());
+
+passport.use('local', new LocalStrategy({
+      usernameField: 'email',
+      passwordField: 'password',
+    },
+    function (email, password, done) {
+        console.log("pssport");
+        console.log(email);
+        console.log(password);
+        users.checkLogin(email,password).then((user)=>{
+            console.log("pssport pass");
+            return done(null,user);
+        }).catch((err)=>{
+            console.log("pssport false");
+            return done(null, false, { message: err });
+        });
+    }
+));
+
+
+
+
+passport.serializeUser(function (user, done) {
+    done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+    done(null, user);
+});
+
+
+// app.use(session({
+//   secret: 'PetPar',
+//   cookie: { maxAge: 60 * 1000 * 30}
+// }));
+
 
 app.use("/public", static);
 app.use(bodyParser.json());

@@ -4,6 +4,7 @@ const dbConnection = require("./mongoConnection");
 /* Feel free to copy and paste this this */
 let getCollectionFn = (collection) => {
     let _col = undefined;
+    console.log("44444444");
 
     return () => {
         if (!_col) {

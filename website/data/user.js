@@ -1,6 +1,7 @@
 const mongoCollections = require("../config/mongoCollections");
 const users = mongoCollections.users;
 const uuid = require('node-uuid');
+const bcrypt = require("bcrypt-nodejs");
 
 let exportedMethods = {
     getAllUsers() {
@@ -8,29 +9,45 @@ let exportedMethods = {
             return userCollection.find({}).toArray();
         });
     },
+      
+    checkLogin(email, password) {
+        console.log("check login 1 ");
+        return new Promise((resolve, reject) => {
+            return users().then((userCollection) => {
+                userCollection.findOne({ email: email }).then((findUser) => {
+                    console.log("check login 2 ");
+                    if (bcrypt.compareSync(password, findUser.password)) resolve(findUser);
+                    reject("invalid username or password");
+                });
+            });
+        })
+
+    },
 
     checkEmail(email) {
+        console.log("checking email");
         return users().then((userCollection) => {
-            return userCollection.findOne({ email: email }).then((user) => {
-                if (!user) return true;
+            return userCollection.findOne({ email: email }).then((checkResult) => {
+                if (!checkResult) return true;
                 return false;
             });
         });
     },
 
     getUserById(id) {
+        console.log("get user by ID");
         return users().then((userCollection) => {
-            return userCollection.findOne({ _id: id }).then((user) => {
-                if (!user) throw "User not found";
-                return user;
+            return userCollection.findOne({ _id: id }).then((finduser) => {
+                if (!finduser) throw "User not found";
+                return finduser;
             });
         });
     },
-    addUser(Email, Password) {
+    addUser(email, password) {
         return users().then((userCollection) => {
             let newUser = {
-                Email: Email,
-                Password: Password,
+                email: email,
+                password: bcrypt.hashSync(password),
                 _id: uuid.v4()
             };
 
