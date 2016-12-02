@@ -1,3 +1,5 @@
+global.app_dir = __dirname;
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
@@ -8,6 +10,16 @@ const configRoutes = require("./routes");
 const exphbs = require('express-handlebars');
 
 const Handlebars = require('handlebars');
+
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var flash = require('express-flash');
+
+const data = require("./data");
+const user = data.user;
 
 const handlebarsInstance = exphbs.create({
     defaultLayout: 'main',
@@ -44,6 +56,31 @@ app.use("/public", static);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(rewriteUnsupportedBrowserMethods);
+app.use(cookieParser());
+
+app.use(session({secret: 'huangzijing', cookie: { maxAge: 86400000 },resave:false,saveUninitialized:true}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+passport.use('local', new LocalStrategy(
+    function (username, password, done) {
+        user.checkLogin(username,password).then((user)=>{
+            return done(null, user);
+        }).catch((err)=>{
+            console.log(err);
+            return done(null, false, { message: err });
+        });
+    }
+));
+
+passport.serializeUser(function (user, done) {
+    done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+    done(null, user);
+});
 
 app.engine('handlebars', handlebarsInstance.engine);
 app.set('view engine', 'handlebars');
