@@ -43,7 +43,7 @@
                 We are the most perfessional birthday party Arrangement Service for pets.
               </p>
               <p>
-                 <a class="btn btn-primary btn-large" href="step1.html">GET STARTED</a>
+                 <a class="btn btn-primary btn-large" href="/process/step1">GET STARTED</a>
               </p>
       
           </div>
@@ -195,19 +195,28 @@
             </div>
           </div>
         </div>
+        {{#if user}}
+        <div class="col-xs-5 column">
+          <img src="/public/img/dog1.jpg" style="width:500px">
+        </div>
+        {{else}}
         <div class="col-xs-5 column">
           <i class="fa fa-birthday-cake home_twitter_logo" style="font-size:50px"></i> 
           <span class="home_media_title">Join Us</span>
-          <form class="home_media_register">
+          <form class="home_media_register" action="/register/register" method="POST">
             <div class="form-group ">
-               <label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" />
+               <label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" placeholder="Email" id="exampleInputEmail1" name="email"/>
             </div>
             <div class="form-group">
-               <label for="exampleInputPassword1">Password</label><input type="password" class="form-control" id="exampleInputPassword1" />
+               <label for="exampleInputPassword1">Password</label><input type="password" class="form-control" placeholder="Password" id="exampleInputPassword1" name="password"/>
+            </div>
+            <div class="form-group">
+               <label for="exampleInputPassword1">Repet Password</label><input class="form-control" type="password" placeholder="Repeat Password" name="repeat_password" name="repeat_password">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
         </div>
+        {{/if}}
       </div>
 
       <div class="row clearfix home_aboutus" style="margin-right: 0px;margin-left: 0px;">

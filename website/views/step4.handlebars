@@ -1,0 +1,61 @@
+ <link rel="stylesheet" href="/public/css/lib/bwizard.min.css">
+ <div class="container step_background_color">
+        <div class="row clearfix" >
+          <div class="col-xs-12 column">
+               {{> (lookup . 'partial_topnav') }}
+          </div>
+        </div>
+
+
+     {{> (lookup . 'partial_bwizard') }}
+		
+		<div class="row clearfix" style="margin-bottom:20px">
+        <h1 class="sp_title">OrderPreview</h1>
+        <div class="col-xs-3 column step1_previous">
+            
+        </div>
+        <div class="col-xs-6 column" >
+          <form role="form" method="post" action="http://baidu.com">
+           <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                      <div class="alert alert-danger" role="alert" id="form_submit_err" style="display:none"></div>
+              </div>
+          </div>
+            <div class="form-group">
+              <dl class="dl-horizontal">
+                <dt>Package</dt>
+                <dd id="order_package">VIP</dd>
+                <dt>Price</dt>
+                <dd id="order_price">$200</dd>
+                <dt>Time</dt>
+                <dd id="order_time">2016.12.02 09:00:00</dd>
+                <dt>Phone</dt>
+                <dd id="order_phone">(201)7365029</dd>
+                <dt>Address</dt>
+                <dd id="order_address">795 Folsom Ave, Suite 600</dd>
+                <dd>San Francisco, CA 94107</dd>
+                <dt>Product</dt>
+                <dd id="order_product_theme">theme</dd>
+                <dd id="order_product_gift">gift</dd>
+                <dd id="order_product_cake">cake</dd>
+                <dd id="order_product_album">album</dd>
+              </dl>
+
+            </div>
+            
+           
+            <ul class="pager bwizard-buttons ">
+          <li class="previous  " role="button" aria-disabled="true"><a href="/process/step3">← Previous</a></li>
+          <li class="next " role="button" aria-disabled="false" id="place_order"><a href="javascript:void(0);" >Place Order →</a></li></ul>
+
+        </div>
+          </form>
+
+         
+        <div class="col-xs-3 column">
+          {{> (lookup . 'partial_cart') }}
+        </div>
+      </div>
+
+
+      </div>

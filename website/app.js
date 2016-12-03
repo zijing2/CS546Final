@@ -20,6 +20,7 @@ var flash = require('express-flash');
 
 const data = require("./data");
 const user = data.user;
+const admin = data.admin;
 
 const handlebarsInstance = exphbs.create({
     defaultLayout: 'main',
@@ -68,7 +69,18 @@ passport.use('local', new LocalStrategy(
         user.checkLogin(username,password).then((user)=>{
             return done(null, user);
         }).catch((err)=>{
-            console.log(err);
+            //console.log(err);
+            return done(null, false, { message: err });
+        });
+    }
+));
+
+passport.use('localadmin', new LocalStrategy(
+    function (adminname, password, done) {
+        admin.checkAdminLogin(adminname,password).then((admin)=>{
+            return done(null, admin);
+        }).catch((err)=>{
+            //console.log(err);
             return done(null, false, { message: err });
         });
     }

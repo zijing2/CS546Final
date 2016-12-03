@@ -18,7 +18,8 @@ router.get("/", (req, res) => {
             "partial_css":"pagecss",
             "partial_js":"pagejs",
             "partial_topnav":"topnav",
-            "css":"../public/css/login.css",
+            "css":"/public/css/login.css",
+            "login":1,
             "js":"/public/js/login.js"
          };
          res.render("login",data);
@@ -33,11 +34,6 @@ router.post('/login',
     })
 );
 
-router.all('/home', isLoggedIn);
-router.get("home", (req, res) => {
-    res.render("/home",{user:req.user});
-    //res.status(200).json({user:req.user});
-});
 
 router.get('/logout', function(req, res) {
     req.logout();

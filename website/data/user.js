@@ -1,7 +1,9 @@
 const mongoCollections = require("../config/mongoCollections");
 const users = mongoCollections.users;
+const pet = mongoCollections.pet;
 const uuid = require('node-uuid');
 const bcrypt = require("bcrypt-nodejs");
+const xss = require('xss');
 
 let exportedMethods = {
     getAllUsers() {
@@ -71,11 +73,14 @@ let exportedMethods = {
             }else{
                 throw "email has been used";
             }
+        });  
+    },
+    getPetbyUid(uid){
+        return pet().then((petCollection) => {
+            return petCollection.findOne({"owner_id":uid}).then((pet)=>{
+                return pet;
+            });
         });
-    
-      
-
-        
     }
 
 }

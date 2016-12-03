@@ -84,6 +84,10 @@ body{margin: 0;padding: 0;}
   text-align: left;
 }
 
+.container-fluid{
+  padding-left: 0px;
+}
+
 .sp_title{
   text-align:center; 
   text-decoration:underline ;
@@ -128,8 +132,16 @@ form .radio-inline{
 
 .radio input[type=radio], .radio-inline input[type=radio], .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox] {
     position: absolute;
-    margin-top: 4px;
-    margin-left: 30px;
+    margin-top: 5px;
+    margin-left: 3px;
+}
+
+.radio_test{
+  margin-left: 20px;
+}
+
+.radio-inline{
+  height:100px
 }
 
 .button_right{

@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="/public/css/lib/bwizard.min.css">
+<div class="container step_background_color" >
+        <div class="row clearfix" >
+          <div class="col-xs-12 column">
+              {{> (lookup . 'partial_topnav') }}
+          </div>
+        </div>
+
+
+    
+        {{> (lookup . 'partial_bwizard') }}
+		
+		<div class="row clearfix" style="margin-bottom:20px">
+        <h1 class="sp_title">Service Price</h1>
+        <div class="col-xs-3 column step1_previous">
+            
+        </div>
+        <div class="col-xs-2 column">
+        <div class="price" style="background:url(/public/img/sp_block.png)">
+          <div class="price_title"><span>Standard</span></div>
+          <div class="price_price"><span>$50</span><sub class="price_price_sub">/party</sub><br/></div>  
+          <button type="button" class="btn btn-default btn-xs price_botton" id="package_standard">choose this package</button><br/>
+          <ul class="price_list">
+            <li>birthday theme X 1</li>
+            <li>birthday cake X 1</li>
+            <li>birthday gift X 1</li>
+            <li>birthday album X 1</li>
+          </ul>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
+<ul class="pager bwizard-buttons"><li class="previous disabled " role="button" aria-disabled="true"><a>← Previous</a></li></ul>
+        </div>
+        <div class="col-xs-2 column price" style="background:url(/public/img/sp_block.png)">
+          <div class="price_title"><span>VIP</span></div>
+          <div class="price_price"><span>$200</span><sub class="price_price_sub">/party</sub><br/></div>  
+          <button type="button" class="btn btn-default btn-xs price_botton" id="package_vip">choose this package</button><br/>
+          <ul class="price_list">
+            <li>birthday theme X 1</li>
+            <li>birthday cake X 1</li>
+            <li>birthday gift X 1</li>
+            <li>birthday album X 1</li>
+            <li>birthday song X 1</li>
+            <li>birthday game X 1</li>
+            <li>birthday bulter X 1</li>
+            <li>birthday dress X 1</li>
+          </ul>
+          <br/><br/><br/><br/><br/><br/><br/>
+          
+        </div> 
+        <div class="col-xs-2 column">
+        <div class="price" style="background:url(/public/img/sp_block.png)">
+          <div class="price_title"><span>VVIP</span></div>
+          <div class="price_price"><span>$500</span><sub class="price_price_sub">/party</sub><br/></div>  
+          <button type="button" class="btn btn-default btn-xs price_botton" id="package_vvip">choose this package</button><br/>
+          <ul class="price_list">
+            <li>birthday theme X 1</li>
+            <li>birthday cake X 1</li>
+            <li>birthday gift X 1</li>
+            <li>birthday album X 1</li>
+            <li>birthday song X 1</li>
+            <li>birthday game X 1</li>
+            <li>birthday bulter X 1</li>
+            <li>birthday dress X 1</li>
+            <li>birthday DJ X 1</li>
+            <li>birthday logo X 1</li>
+          </ul>
+          <br/><br/><br/><br/><br/>
+        </div>
+         <ul class="pager bwizard-buttons step1_next"><li class="next " role="button" aria-disabled="false"><a href="/process/step2">Next →</a></li></ul>
+       </div>
+        <div class="col-xs-3 column">
+             {{> (lookup . 'partial_cart') }}
+        </div>
+      </div>
+
+
+      </div>
+
+    

@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
             "partial_topnav":"topnav",
             "css":"../public/css/register.css",
             "js":"/public/js/register.js",
+            "register":1
          };
          res.render("register",data);
     }

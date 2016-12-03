@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="/public/css/lib/bwizard.min.css">
+<link href="/public/css/lib/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<div class="container step_background_color">
+        <div class="row clearfix" >
+          <div class="col-xs-12 column">
+              {{> (lookup . 'partial_topnav') }}
+          </div>
+        </div>
+
+
+   {{> (lookup . 'partial_bwizard') }}
+		
+		<div class="row clearfix" style="margin-bottom:20px">
+        <h1 class="sp_title">Time&Address</h1>
+        <div class="col-xs-3 column step1_previous">
+            
+        </div>
+        <div class="col-xs-6 column">
+          <form role="form" >
+            <div class="form-group">
+              <!-- <label for="exampleInputEmail1">Time</label>
+              <input type="Text" class="form-control" id="exampleInputEmail1" placeholder="2016.12.2 09:00:00"> -->
+
+              <label for="dtp_input1" >DateTime Picking</label>
+              <div class="input-group date form_datetime col-md-5 timepick_width" data-date="2016-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                  <input class="form-control" size="30" type="text" value="" placeholder="09 November 2016 - 03:15 pm" id="date">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+              </div>
+              <input type="hidden" id="" value="" /><br/>
+            </div>
+            <div class="form-group">
+              <label>Address</label>
+              <input type="Text" class="form-control" id="address" placeholder="490 Pavonia, Jersey city, New Jersey">
+            </div>
+
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="number" class="form-control" id="phone" placeholder="2017365028">
+            </div>
+            
+           
+            <ul class="pager bwizard-buttons ">
+          <li class="previous  " role="button" aria-disabled="true" id="pre_btn"><a href="/process/step2">← Previous</a></li>
+          <li class="next " role="button" aria-disabled="false"mid="next_btn"><a href="/process/step4" >Submit →</a></li></ul>
+
+        </div>
+          </form>
+
+         
+        <div class="col-xs-3 column">
+          {{> (lookup . 'partial_cart') }}
+        </div>
+      </div>
+
+
+      </div>
+
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="/public/js/lib/date-picker/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/public/js/lib/date-picker/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    forceParse: 0,
+        showMeridian: 1
+    });
+  $('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+    });
+  $('.form_time').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0
+    });
+</script>
