@@ -5,7 +5,11 @@ const bcrypt = require("bcrypt-nodejs");
 const xss = require('xss');
 
 let exportedMethods = {
-
+    getAllOrders(){
+         return order().then((orderCollection) => {
+             return orderCollection.find({}).toArray();
+         }).catch((err)=>{console.log(err)});;
+    },
     getOrderByUid(uid) {
         return order().then((orderCollection) => {
             return orderCollection.find({"uid":uid}).toArray();

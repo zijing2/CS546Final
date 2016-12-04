@@ -52,7 +52,7 @@
         $('#cart_date')[0].innerText = localStorage["cart_date"];
         localStorage["cart_address"] = address.val();
         $('#cart_address')[0].innerText = localStorage["cart_address"];
-        localStorage["cart_phone"] = address.val();
+        localStorage["cart_phone"] = phone.val();
         $('#cart_phone')[0].innerText = localStorage["cart_phone"];
     });
 

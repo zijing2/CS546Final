@@ -4,7 +4,7 @@ const data = require("../data");
 const user = data.user;
 
 router.get("/", (req, res) => { 
-    if(req.isAuthenticated()){
+    if(req.isAuthenticated()&&req.user._id){
         res.redirect('/home');
     }else{
          var data = {
@@ -14,7 +14,8 @@ router.get("/", (req, res) => {
             "partial_topnav":"topnav",
             "css":"../public/css/register.css",
             "js":"/public/js/register.js",
-            "register":1
+            "register":1,
+             "title":"PetPar-Register"
          };
          res.render("register",data);
     }

@@ -15,7 +15,8 @@ router.get("/step1", (req, res) => {
         "css":"/public/css/step1.css",
         "js":"/public/js/step1.js",
         "user":req.user,
-        "step1": 1
+        "step1": 1,
+        "title":"PetPar-Process-step1"
         };
     res.render("step1",data);
 
@@ -31,7 +32,8 @@ router.get("/step2", (req, res) => {
         "css":"/public/css/step2.css",
         "js":"/public/js/step2.js",
         "user":req.user,
-        "step2": 1 
+        "step2": 1 ,
+         "title":"PetPar-Process-step2"
         };
     res.render("step2",data);
 
@@ -47,7 +49,8 @@ router.get("/step3", (req, res) => {
         "css":"/public/css/step3.css",
         "js":"/public/js/step3.js",
         "user":req.user,
-        "step3": 1
+        "step3": 1,
+         "title":"PetPar-Process-step3"
         };
     res.render("step3",data);
 
@@ -63,7 +66,8 @@ router.get("/step4", (req, res) => {
         "css":"/public/css/step4.css",
         "js":"/public/js/step4.js",
         "user":req.user,
-        "step4": 1
+        "step4": 1,
+         "title":"PetPar-Process-step4"
         };
     res.render("step4",data);
 
@@ -71,7 +75,7 @@ router.get("/step4", (req, res) => {
 
 function isLoggedIn(req, res, next) {
     //console.log(req.isAuthenticated());
-    if (req.isAuthenticated()){
+    if (req.isAuthenticated()&&req.user._id){
         return next()
     }
     res.redirect('/login');

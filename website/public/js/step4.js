@@ -59,12 +59,11 @@
         };
 
         $.ajax(requestConfig).then(function (resObj) {
-            debugger;
+
                 if(resObj.created==1){
                     localStorage.clear(); 
                     location.href = "/order";
                 }else{
-                    debugger;
                     $("#form_submit_err")[0].innerText = resObj.err;
                     $("#form_submit_err").show();
                 }

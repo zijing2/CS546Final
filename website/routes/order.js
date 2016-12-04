@@ -17,7 +17,8 @@ router.get("/", (req, res) => {
                         "css":"/public/css/orderlist.css",
                         "js":"/public/js/orderlist.js",
                         "user":req.user,
-                        "orders":orders
+                        "orders":orders,
+                        "title":"PetPar-OrderList"
                 };
                 res.render('orderlist',data);
         });
@@ -37,7 +38,8 @@ router.get("/:order_id", (req, res) => {
                                 "js":"/public/js/orderdetail.js",
                                 "user":req.user,
                                 "order":my_order,
-                                "orders":orders
+                                "orders":orders,
+                                "title":"PetPar-OrderDetail"
                         };
                         res.render('order',data);
                  }).catch((err)=>{console.log(err);});
@@ -75,10 +77,10 @@ router.post("/", (req, res) => {
 
 function isLoggedIn(req, res, next) {
     //console.log(req.isAuthenticated());
-    if (req.isAuthenticated()){
+    if (req.isAuthenticated()&&req.user._id){
         return next()
     }
-    res.redirect('/');
+    res.redirect('/login');
 }
 
 

@@ -67,7 +67,20 @@ let exportedMethods = {
                         })
                         .then((newId) => {
                             console.log(newId);
-                            return this.getUserById(newId);
+
+                            //creat pet 
+                            var newPet = {
+                                _id:uuid.v4(),
+                                owner_id:newId
+                            };
+                            return pet().then((petCollection)=>{
+                                return petCollection.insertOne(newPet)
+                                .then((newInsertInformation) => {
+                                   // return newInsertInformation.insertedId;
+                                     return this.getUserById(newId);
+                                });
+                            });
+                           
                         });  
                 });
             }else{
@@ -75,12 +88,84 @@ let exportedMethods = {
             }
         });  
     },
+    updateUser(uid,updateUser){
+        return users().then((userCollection) => {
+            var updateData = {};
+
+            //console.log(updateUser.user_name);
+
+            if(updateUser.user_name){
+                updateData["profile.name"] = updateUser.user_name;
+            }
+            if(updateUser.user_gender){
+                updateData["profile.gender"] = updateUser.user_gender;
+            }
+            if(updateUser.user_birthday){
+                updateData["profile.birthday"] = updateUser.user_birthday;
+            }
+            if(updateUser.user_phone){
+                updateData["profile.phone"] = updateUser.user_phone;
+            }
+            if(updateUser.user_address){
+                updateData["profile.address"] = updateUser.user_address;
+            }
+            let updateCommand = {
+                $set: updateData
+            };
+
+            //console.log(updateCommand);
+
+            return userCollection.updateOne({
+                _id: uid
+            }, updateCommand).then((result) => {
+                return this.getUserById(uid);
+            });
+
+        });
+    },
+    getAllPets(){
+        return pet().then((petCollection) => {
+            return petCollection.find({}).toArray();
+        });
+    },
     getPetbyUid(uid){
         return pet().then((petCollection) => {
             return petCollection.findOne({"owner_id":uid}).then((pet)=>{
                 return pet;
             });
         });
+    },
+    updatePetbyOwnerId(owner_id,updatePet){
+         return pet().then((petCollection) => {
+             var updateData = {};
+            if(updatePet.pet_name){
+                updateData["name"] = updatePet.pet_name;
+            }
+            if(updatePet.pet_gender){
+                updateData["gender"] = updatePet.pet_gender;
+            }
+            if(updatePet.pet_birthday){
+                updateData["birthday"] = updatePet.pet_birthday;
+            }
+            if(updatePet.pet_breed){
+                updateData["breed"] = updatePet.pet_breed;
+            }
+            if(updatePet.pet_hobbies){
+                updateData["hobbies"] = updatePet.pet_hobbies;
+            }
+            if(updatePet.pet_hates){
+                updateData["hates"] = updatePet.pet_hates;
+            }
+            let updateCommand = {
+                $set: updateData
+            };
+            return petCollection.updateOne({
+                "owner_id": owner_id
+            }, updateCommand).then((result) => {
+                return this.getPetbyUid(owner_id);
+            });
+
+         });
     }
 
 }

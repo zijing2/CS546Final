@@ -5,6 +5,7 @@ const adminRoutes = require("./admin");
 const registerRoutes = require("./register");
 const processRoutes = require("./process");
 const orderRoutes = require("./order");
+const accountRoutes = require("./account");
 
 
 const constructorMethod = (app) => {
@@ -15,6 +16,7 @@ const constructorMethod = (app) => {
     app.use("/register", registerRoutes);
     app.use("/process", processRoutes);
     app.use("/order", orderRoutes);
+    app.use("/account", accountRoutes);
 };
 
 module.exports = constructorMethod;

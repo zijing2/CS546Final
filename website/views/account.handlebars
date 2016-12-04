@@ -1,0 +1,217 @@
+<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap-fileinput/4.3.5/css/fileinput.min.css">
+<div class="container">
+        <div class="row clearfix" >
+          <div class="col-xs-12 column">
+               {{> (lookup . 'partial_topnav') }}
+          </div>
+
+
+
+       <div class="row clearfix">
+    <div class="col-md-6 column  account_user_background_color">
+
+       <h1 class="account_title"><i class="fa fa-user account_logo"></i>User Information</h1>
+       <!-- the avatar markup -->
+        <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+        <form class="text-center form-horizontal"  method="post" enctype="multipart/form-data">
+          
+          <div class="form-group">
+            <div class="kv-avatar center-block" style="width:200px">
+                <input id="avatar-1" name="avatar-1" type="file" class="file-loading">
+            </div>
+            <!-- include other inputs if needed and include a form submit (save) button -->
+            <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+          </div>
+
+          <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                      <div class="alert alert-danger" role="alert" id="user_form_error" style="display:none"></div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                      <div class="alert alert-success" role="alert" id="user_form_success" style="display:none"></div>
+              </div>
+          </div>
+
+        <div class="form-group">
+           <label for="inputEmail3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <div class="input-group margin-bottom-sm">
+
+              <span class="input-group-addon"><i class="fa fa-id-card-o fa-fw" aria-hidden="true"></i></span>
+              <input class="form-control" type="text" placeholder="{{user._id}}" disabled>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputEmail3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+              <input class="form-control" type="text" placeholder="username" value="{{user.profile.name}}" id="user_name">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-mars fa-fw"></i></span>
+              <select class="form-control" id="user_gender">
+                  <option value="male" {{#if user.profile.male}}selected{{/if}}>male</option>
+                  <option value="female" {{#if user.profile.female}}selected{{/if}}>female</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-birthday-cake fa-fw"></i></span>
+              <input class="form-control"  placeholder="Date Of Birth" value="{{user.profile.birthday}}" id="user_birthday">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-mobile fa-fw"></i></span>
+              <input class="form-control"  placeholder="Mobile" value="{{user.profile.phone}}" id="user_phone"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-home fa-fw"></i></span>
+              <input class="form-control"  placeholder="Address" value="{{user.profile.address}}" id="user_address"/>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+              
+             <button type="submit" data-loading-text="Loading..." class="btn btn-primary btn-block" autocomplete="off" id="user_form_save">Save</button>
+             <button type="button" class="btn btn-default btn-block" id="user_form_reset">Reset</button>
+            
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 column  account_pet_background_color">
+      <h1 class="account_title2"><img class="account_pet_logo" src="/public/img/icon-pet.png" alt=""/> Pet Information</h1>
+      <!-- the avatar markup -->
+        <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+        <form class="text-center form-horizontal"  method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <div class="kv-avatar center-block" style="width:200px">
+                <input id="avatar-2" name="avatar-2" type="file" class="file-loading">
+            </div>
+          </div>
+            <!-- include other inputs if needed and include a form submit (save) button -->
+        
+        <!-- your server code `avatar_upload.php` will receive `$_FILES['avatar']` on form submission -->
+
+        <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                      <div class="alert alert-danger" role="alert" id="pet_form_error" style="display:none"></div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                      <div class="alert alert-success" role="alert" id="pet_form_success" style="display:none"></div>
+              </div>
+          </div>
+
+        <div class="form-group">
+           <label for="inputEmail3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+              <input class="form-control" type="text" placeholder="PetName" value="{{pet.name}}" id="pet_name" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-paw fa-fw"></i></span>
+              <select class="form-control" id="pet_breed">
+                  <option value="dog" {{#if pet.dog}}selected{{/if}}>Dog</option>
+                  <option value="cat" {{#if pet.cat}}selected{{/if}}>Cat</option>
+                  <option value="bird" {{#if pet.bird}}selected{{/if}}>Bird</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-mars fa-fw"></i></span>
+              <select class="form-control" id="pet_gender">
+                  <option value="boy" {{#if pet.boy}}selected{{/if}}>boy</option>
+                  <option value="girl" {{#if pet.girl}}selected{{/if}}>girl</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-birthday-cake fa-fw"></i></span>
+              <input class="form-control"  placeholder="Date Of Birth" value="{{pet.birthday}}" id="pet_birthday" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-heart fa-fw"></i></span>
+              <input class="form-control"  placeholder="Hobbies" value="{{pet.hobbies}}" id="pet_hobbies" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+           <label for="inputPassword3" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+           <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-fire fa-fw"></i></span>
+              <input class="form-control"  placeholder="Hates" value="{{pet.hates}}" id="pet_hates" />
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+              
+             <button type="submit"  data-loading-text="Loading..." class="btn btn-primary btn-block" autocomplete="off" id="pet_form_save">Save</button>
+             <button type="button" class="btn btn-default btn-block" id="pet_form_reset">Reset</button>
+          
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+
+
+
+
+        </div>
+
+
+
