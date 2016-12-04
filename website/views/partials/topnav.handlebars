@@ -14,7 +14,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="/account">Account</a></li>
                     <li><a href="/order">Order</a></li>
-                    <li><a href="#">Help</a></li>
+                    <li><a href="/help">Help</a></li>
                     {{#if user}}
                     <li class="divider"></li>
                     <li><a href="/login/logout">logout</a></li>
@@ -28,9 +28,9 @@
     <ul class="nav navbar-nav navbar-right"> 
         {{#if user}}
             {{#if user.profile.name}}
-                <li><a href="#">welcome, {{user.profile.name}}</a></li>
+                <li><a href="/account">welcome, {{user.profile.name}}</a></li>
             {{else}}
-                <li><a href="#">welcome, {{user.profile.email}}</a></li>
+                <li><a href="/account">welcome, {{user.profile.email}}</a></li>
             {{/if}} 
         {{else}}
         <li {{#if register}}class="active"{{/if}}><a href="Register"><span class="glyphicon glyphicon-user"></span> Register</a></li> 

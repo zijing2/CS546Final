@@ -29,6 +29,7 @@ router.post("/register", (req, res) => {
         var err = "password not match";
         req.flash('err',err);
         res.redirect('/register');
+        return;
     }
 
     user.register(email,password).then((user)=>{
