@@ -20,6 +20,11 @@ let exportedMethods = {
             return orderCollection.findOne({"_id":oid});
         }).catch((err)=>{console.log(err)});
     },
+    deleteOrderById(oid){
+        return order().then((orderCollection) => {
+            return orderCollection.remove({"_id":oid});
+        }).catch((err)=>{console.log(err)});
+    },
     placeOrder(package,price,address,phone,time,theme,gift,cake,album,uid,pet){
         if(typeof package=='undefined'||typeof uid=='undefined'){
             throw "package invalid";

@@ -11,53 +11,60 @@ let exportedMethods = {
             return userCollection.find({}).toArray();
         });
     },
-    getUserById(uid){
+    getUserById(uid) {
         return users().then((userCollection) => {
-            return userCollection.findOne({"_id":uid}).then((user)=>{
+            return userCollection.findOne({ "_id": uid }).then((user) => {
                 return user;
             });
         });
     },
-    getUserByEmail(email){
+    deleteUserById(uid) {
         return users().then((userCollection) => {
-            return userCollection.findOne({"profile.email":email}).then((user)=>{
+            return userCollection.remove({ "_id": uid }).then((result) => {
+                return result;
+            })
+        })
+    },
+    getUserByEmail(email) {
+        return users().then((userCollection) => {
+            return userCollection.findOne({ "profile.email": email }).then((user) => {
                 return user;
             });
         });
     },
-    checkLogin(email,password){
+    checkLogin(email, password) {
         return users().then((userCollection) => {
-            return userCollection.findOne({"profile.email":email}).then((user)=>{
-                if(!user){
+            return userCollection.findOne({ "profile.email": email }).then((user) => {
+                if (!user) {
                     throw "user does not exist";
-                }else{
+                } else {
                     //console.log(bcrypt.compareSync(password, user.pwd));
-                    if(bcrypt.compareSync(password, user.pwd)){
+                    if (bcrypt.compareSync(password, user.pwd)) {
                         return user;
-                    }else{
+                    } else {
                         throw "password error";
                     }
                 }
             });
         });
     },
-    register(email,password){
+    register(email, password) {
         //email must be uniq
-        return this.getUserByEmail(email).then((user)=>{
+        return this.getUserByEmail(email).then((user) => {
             //console.log(bcrypt.hashSync(password));
-            if(!user){
+            if (!user) {
                 var uid = uuid.v4();
                 var date = new Date();
                 let newUser = {
                     _id: uid,
                     pwd: bcrypt.hashSync(password),
                     rtime: Date.parse(date),
-                    profile:{
+                    profile: {
                         _id: uid,
                         email: email
                     },
-                    pet:{},
-                    order:{}
+                    pet: {},
+                    order: {}
                 };
 
                 return users().then((userCollection) => {
@@ -70,43 +77,43 @@ let exportedMethods = {
 
                             //creat pet 
                             var newPet = {
-                                _id:uuid.v4(),
-                                owner_id:newId
+                                _id: uuid.v4(),
+                                owner_id: newId
                             };
-                            return pet().then((petCollection)=>{
+                            return pet().then((petCollection) => {
                                 return petCollection.insertOne(newPet)
-                                .then((newInsertInformation) => {
-                                   // return newInsertInformation.insertedId;
-                                     return this.getUserById(newId);
-                                });
+                                    .then((newInsertInformation) => {
+                                        // return newInsertInformation.insertedId;
+                                        return this.getUserById(newId);
+                                    });
                             });
-                           
-                        });  
+
+                        });
                 });
-            }else{
+            } else {
                 throw "email has been used";
             }
-        });  
+        });
     },
-    updateUser(uid,updateUser){
+    updateUser(uid, updateUser) {
         return users().then((userCollection) => {
             var updateData = {};
 
             //console.log(updateUser.user_name);
 
-            if(updateUser.user_name){
+            if (updateUser.user_name) {
                 updateData["profile.name"] = updateUser.user_name;
             }
-            if(updateUser.user_gender){
+            if (updateUser.user_gender) {
                 updateData["profile.gender"] = updateUser.user_gender;
             }
-            if(updateUser.user_birthday){
+            if (updateUser.user_birthday) {
                 updateData["profile.birthday"] = updateUser.user_birthday;
             }
-            if(updateUser.user_phone){
+            if (updateUser.user_phone) {
                 updateData["profile.phone"] = updateUser.user_phone;
             }
-            if(updateUser.user_address){
+            if (updateUser.user_address) {
                 updateData["profile.address"] = updateUser.user_address;
             }
             let updateCommand = {
@@ -123,37 +130,44 @@ let exportedMethods = {
 
         });
     },
-    getAllPets(){
+    getAllPets() {
         return pet().then((petCollection) => {
             return petCollection.find({}).toArray();
         });
     },
-    getPetbyUid(uid){
+    getPetbyUid(uid) {
         return pet().then((petCollection) => {
-            return petCollection.findOne({"owner_id":uid}).then((pet)=>{
+            return petCollection.findOne({ "_id": uid }).then((pet) => {
                 return pet;
             });
         });
     },
-    updatePetbyOwnerId(owner_id,updatePet){
-         return pet().then((petCollection) => {
-             var updateData = {};
-            if(updatePet.pet_name){
+    deletePetsById(pid){
+        return pet().then((petCollection) => {
+            return petCollection.remove({ "_id": pid }).then((pet) => {
+                return pet;
+            });
+        });
+    },
+    updatePetbyOwnerId(owner_id, updatePet) {
+        return pet().then((petCollection) => {
+            var updateData = {};
+            if (updatePet.pet_name) {
                 updateData["name"] = updatePet.pet_name;
             }
-            if(updatePet.pet_gender){
+            if (updatePet.pet_gender) {
                 updateData["gender"] = updatePet.pet_gender;
             }
-            if(updatePet.pet_birthday){
+            if (updatePet.pet_birthday) {
                 updateData["birthday"] = updatePet.pet_birthday;
             }
-            if(updatePet.pet_breed){
+            if (updatePet.pet_breed) {
                 updateData["breed"] = updatePet.pet_breed;
             }
-            if(updatePet.pet_hobbies){
+            if (updatePet.pet_hobbies) {
                 updateData["hobbies"] = updatePet.pet_hobbies;
             }
-            if(updatePet.pet_hates){
+            if (updatePet.pet_hates) {
                 updateData["hates"] = updatePet.pet_hates;
             }
             let updateCommand = {
@@ -165,7 +179,7 @@ let exportedMethods = {
                 return this.getPetbyUid(owner_id);
             });
 
-         });
+        });
     }
 
 }

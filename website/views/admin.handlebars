@@ -95,12 +95,53 @@
                     <td>{{profile.phone}}</td>
                     <td>{{profile.email}}</td>
                     <td><a href="" class="templatemo-edit-btn">Edit</a></td>
-                    <td><a href="" class="templatemo-link">Delete</a></td>
+                    <td><a href="/admin/deUser/{{_id}}" class="templatemo-link">Delete</a></td>
                   </tr>
                    {{/each}}
                 </tbody>
               </table>  
-              {{/if}}  
+              {{/if}}
+              {{#if is_product}}
+              <table class="table table-striped table-bordered templatemo-user-table">
+                <thead>
+                    
+                  <tr>
+                    <td><a href="" class="white-text templatemo-sort-by"># <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">Type <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">name <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">img <span class="caret"></span></a></td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                  </tr>
+                 
+                </thead>
+                <tbody>
+                    {{#each products}}
+                  <tr>
+                    <td>{{_id}}</td>
+                    <td>{{type}}</td>
+                    <td>{{name}}</td>
+                    <td>{{img}}</td>
+                    <td><a href="" class="templatemo-edit-btn">Edit</a></td>
+                    <td><a href="/admin/deProduct/{{_id}}" class="templatemo-link">Delete</a></td></td>
+                  </tr>
+                   {{/each}}
+                </tbody>
+              </table> 
+              <form class="form-horizontal" role="form" action="/admin/newproduct" method="POST" id="product_submit_button">
+              <select class="form-control" name="type" placeholder="select the type" >
+                  <option value="theme">theme</option>
+                  <option value="cake">cake</option>
+                  <option value="gift">gift</option>
+                  <option value="album">album</option>
+              </select>
+              <input class="form-control" name="name" type="text" placeholder="input product name" id="product_name_input">
+              <input class="form-control" name="img"  type="file" placeholder="get your image" />  
+              <button type="submit" id="addProduct" data-loading-text="Loading..." class="btn btn-primary btn-block" autocomplete="off">Add</button>
+              </form>
+              
+
+              {{/if}}   
               {{#if is_order}}
                <table class="table table-striped table-bordered templatemo-user-table">
                 <thead>
@@ -141,7 +182,7 @@
                     <td>{{order_img}}</td>
                     <td>{{place_time}}</td>
                     <td><a href="" class="templatemo-edit-btn">Edit</a></td>
-                    <td><a href="" class="templatemo-link">Delete</a></td>
+                    <td><a href="/admin/deOrder/{{_id}}" class="templatemo-link">Delete</a></td>
                   </tr>
                    {{/each}}
                 </tbody>
@@ -175,7 +216,7 @@
                     <td>{{breed}}</td>
                     <td>{{hobbies}}</td>
                     <td><a href="" class="templatemo-edit-btn">Edit</a></td>
-                    <td><a href="" class="templatemo-link">Delete</a></td>
+                    <td><a href="/admin/dePet/{{_id}}" class="templatemo-link">Delete</a></td>
                   </tr>
                    {{/each}}
                 </tbody>
