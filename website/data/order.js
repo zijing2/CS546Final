@@ -26,35 +26,35 @@ let exportedMethods = {
         }).catch((err)=>{console.log(err)});
     },
     placeOrder(package,price,address,phone,time,theme,gift,cake,album,uid,pet){
-        if(typeof package=='undefined'||typeof uid=='undefined'){
+        if(typeof package=='undefined'|| package==''){
             throw "package invalid";
         }
-        if(typeof price=='undefined'){
-            throw "price invalid"
+        if(typeof price=='undefined'|| price==''){
+            throw "price invalid";
         }   
-        if(typeof phone=='undefined'){
-            throw "phone invalid"
+        if(typeof phone=='undefined'|| phone==''){
+            throw "phone invalid";
         }   
-        if(typeof address=='undefined'){
-            throw "address invalid"
+        if(typeof address=='undefined'|| address==''){
+            throw "address invalid";
         }   
-        if(typeof time=='undefined'){
-            throw "time invalid"
+        if(typeof time=='undefined'|| time==''){
+            throw "time invalid";
         }   
-        if(typeof theme=='undefined'){
-            throw "theme invalid"
+        if(typeof theme=='undefined'|| theme==''){
+            throw "theme invalid";
         }   
-        if(typeof gift=='undefined'){
-            throw "gift invalid"
+        if(typeof gift=='undefined'|| gift==''){
+            throw "gift invalid";
         }   
-        if(typeof cake=='undefined'){
+        if(typeof cake=='undefined'|| cake==''){
             throw "cake invalid";
         }
-        if(typeof album=='undefined'){
-            throw "album invalid"
+        if(typeof album=='undefined'|| album==''){
+            throw "album invalid";
         }   
-        if(typeof uid=='undefined'){
-            throw "uid invalid"
+        if(typeof uid=='undefined'|| uid==''){
+            throw "uid invalid";
         }   
         var oid = uuid.v4();
         var date = new Date();

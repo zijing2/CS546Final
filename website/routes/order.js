@@ -62,15 +62,20 @@ router.post("/", (req, res) => {
         var time = req.body.order_time;
         var uid = req.user._id;
 
+        try {
 
-        user.getPetbyUid(uid).then((pet)=>{
-                order.placeOrder(package,price,address,phone,time,theme,gift,cake,album,uid,pet).then((order)=>{
-                        //console.log(order);
-                        res.status(200).json({"created":1,"order":order});
-                }).catch((err)=>{
-                        res.status(200).json({"err":err});
-                });
-        });
+            user.getPetbyUid(uid).then((pet)=>{
+                    order.placeOrder(package,price,address,phone,time,theme,gift,cake,album,uid,pet).then((order)=>{
+                            //console.log(order);
+                            res.status(200).json({"created":1,"order":order});
+                    }).catch((err)=>{
+                            res.status(200).json({"err":err});
+                    });
+            });
+
+        } catch (error) {
+                        res.status(200).json({"err":error});
+                }
         
         
 });
