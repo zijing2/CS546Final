@@ -137,7 +137,7 @@ let exportedMethods = {
     },
     getPetbyUid(uid) {
         return pet().then((petCollection) => {
-            return petCollection.findOne({ "_id": uid }).then((pet) => {
+            return petCollection.findOne({ "owner_id": uid }).then((pet) => {
                 return pet;
             });
         });
